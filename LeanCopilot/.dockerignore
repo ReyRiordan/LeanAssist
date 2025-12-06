@@ -1,0 +1,7 @@
+*.txt
+.vscode
+tmp
+.lake
+clang+llvm*
+**/__pycache__
+*/.DS_Store
