@@ -1,4 +1,5 @@
 # LeanAssist
 Math495 final project w/ Man Cao
 
-Dataset/benchmark: https://zenodo.org/records/12740403
+Original LeanDojo: https://github.com/lean-dojo/LeanDojo
+Dataset/benchmark (too big for git): https://zenodo.org/records/12740403
