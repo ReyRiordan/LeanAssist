@@ -1,0 +1,9 @@
+{
+  "model": "anthropic/claude-haiku-4.5",
+  "total_theorems": 104,
+  "successful": 32,
+  "failed": 72,
+  "accuracy": 0.3076923076923077,
+  "avg_proof_length": 1.96875,
+  "avg_search_time": 43.03717117756605
+}

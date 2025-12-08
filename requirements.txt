@@ -1,0 +1,7 @@
+
+-e ./LeanDojo
+
+python-dotenv
+
+numpy>=1.24.0
+pandas>=2.0.0
