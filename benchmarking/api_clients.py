@@ -141,6 +141,7 @@ class FireworksClient(APIClient):
                     model=self.model, 
                     temperature=self.temperature,
                     max_completion_tokens=self.max_tokens,
+                    reasoning_effort=True, # turn reasoning on
                     messages=messages
                 )
 
