@@ -1,0 +1,9 @@
+{
+  "model": "accounts/fireworks/models/deepseek-v3p2",
+  "total_theorems": 100,
+  "successful": 38,
+  "failed": 62,
+  "accuracy": 0.38,
+  "avg_proof_length": 1.8157894736842106,
+  "avg_search_time": 59.485277947626614
+}

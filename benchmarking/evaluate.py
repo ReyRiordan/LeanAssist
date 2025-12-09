@@ -5,12 +5,14 @@ from pathlib import Path
 from typing import List, Dict, Optional
 from lean_dojo import Dojo, Theorem, LeanGitRepo, DojoInitError, DojoCrashError
 
-from benchmarking.api_clients import OpenRouterClient
+from benchmarking.api_clients import OpenRouterClient, FireworksClient
 from benchmarking.proof_search import ProofSearch, ProofSearchResult
 
 
 @dataclass
 class EvaluationConfig:
+    provider: str # openrouter, fireworks
+    api_key: str
     model: str
     num_samples: int
     dataset_path: str
@@ -21,9 +23,17 @@ class EvaluationConfig:
 class Evaluator:
     """Framework for benchmarking LLMs on LeanDojo datasets"""
 
-    def __init__(self, config: EvaluationConfig, api_key: str):
+    def __init__(self, config: EvaluationConfig):
         self.config = config
-        self.api_key = api_key
+
+        # Set up API
+        if config.provider == "openrouter":
+            self.api_client = OpenRouterClient(config.model, config.api_key, config.num_samples)
+        elif config.provider == "fireworks":
+            self.api_client = FireworksClient(config.model, config.api_key, config.num_samples)
+        else:
+            print("UNKNOWN API PROVIDER")
+        
         # Set up output stuff
         self.output_path = Path(config.output_path)
         self.output_path.mkdir(parents=True, exist_ok=True)
@@ -56,12 +66,8 @@ class Evaluator:
 
     def prove_theorem(self, example: Dict[str, str]) -> ProofSearchResult:
         """Prove a single theorem"""
-        api_client = OpenRouterClient(
-            model = self.config.model,
-            api_key = self.api_key,
-            num_samples=self.config.num_samples,
-        )
-        searcher = ProofSearch(api_client=api_client)
+
+        searcher = ProofSearch(api_client=self.api_client)
 
         # Setup
         try:
@@ -129,13 +135,20 @@ class Evaluator:
         print(f"Starting evaluation of {len(examples)} theorems")
 
         # Run evaluation with parallelization
+        submitted = set()
         completed_count = 0
         total = len(examples)
+        executor = ProcessPoolExecutor(max_workers=self.config.num_workers)
 
-        with ProcessPoolExecutor(max_workers=self.config.num_workers) as executor:
-            # Submit all
-            submission_to_example = {executor.submit(self.prove_theorem, ex): ex for ex in examples}
-
+        try:
+            # Submit all + avoid dupes
+            submission_to_example = {}
+            for ex in examples:
+                example_id = ex['full_name']
+                if example_id not in submitted:
+                    submission_to_example[executor.submit(self.prove_theorem, ex)] = ex
+                    submitted.add(example_id)
+                
             # Process results as they complete
             for submission in as_completed(submission_to_example):
                 try:
@@ -147,6 +160,17 @@ class Evaluator:
                     example = submission_to_example[submission]
                     print(f"Failed to process {example['full_name']}: {e}")
                     completed_count += 1
+        
+        except KeyboardInterrupt:
+            for submission in submission_to_example:
+                submission.cancel()
+            executor.shutdown(wait=False, cancel_futures=True)
+            print("Shutdown complete")
+            raise
+
+        finally:
+            executor.shutdown(wait=True)
+            print("Shutdown complete")
 
         # Summarize
         summary = self.compute_summary()
