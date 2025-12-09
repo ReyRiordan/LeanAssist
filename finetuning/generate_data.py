@@ -94,22 +94,19 @@ def main():
     seed = 67                               # rng seed for shuffling
     # -------------------
 
-    output_path = Path(f"finetuning/data/{data_cat}_{dataset_name}")
-    output_path.mkdir(parents=True, exist_ok=True)
-
     # TRAIN
     train_path = Path(f"leandojo_benchmark_4/{data_cat}/train.json")
     train_pairs, estimate_train = load_and_extract(train_path, num_examples_train, shuffle, seed)
-    print(f"Extracted {len(train_pairs)} pairs for training (approx {estimate_train} tokens)")
+    print(f"TRAINING: Extracted {len(train_pairs)} pairs from {num_examples_train} examples (approx {estimate_train} tokens)")
 
     # VAL
     val_path = Path(f"leandojo_benchmark_4/{data_cat}/val.json")
     val_pairs, estimate_val = load_and_extract(val_path, num_examples_val, shuffle, seed)
-    print(f"Extracted {len(val_pairs)} pairs for validation (approx {estimate_val} tokens)")
+    print(f"VALIDATION: Extracted {len(val_pairs)} pairs from {num_examples_val} examples (approx {estimate_val} tokens)")
 
     # Write JSONLs
-    output_path_train = output_path / "train.jsonl"
-    output_path_val = output_path / "val.jsonl"
+    output_path_train = Path(f"finetuning/data/{dataset_name}_{data_cat}_train.jsonl")
+    output_path_val = Path(f"finetuning/data/{dataset_name}_{data_cat}_val.jsonl")
     write_jsonl(train_pairs, output_path_train)
     write_jsonl(val_pairs, output_path_val)
 
