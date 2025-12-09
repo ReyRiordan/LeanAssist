@@ -1,0 +1,100 @@
+{"success": true, "theorem_name": "CategoryTheory.Equivalence.invFunIdAssoc_hom_app", "proof_steps": ["simp [Equivalence.invFunIdAssoc]"], "proof_length": 1, "search_time": 13.076538324356079}
+{"success": false, "theorem_name": "ContinuousAt.comp_lowerSemicontinuousWithinAt_antitone", "proof_steps": null, "proof_length": null, "search_time": 15.318897247314453}
+{"success": false, "theorem_name": "LocalizedModule.mk_add_mk", "proof_steps": null, "proof_length": null, "search_time": 16.77949285507202}
+{"success": false, "theorem_name": "UFModel.Models.parent_eq'", "proof_steps": null, "proof_length": null, "search_time": 30.960957765579224}
+{"success": true, "theorem_name": "Combinatorics.Line.apply_of_ne_none", "proof_steps": ["simp [Option.getD_of_ne_none h]"], "proof_length": 1, "search_time": 14.509636878967285}
+{"success": false, "theorem_name": "CancelDenoms.cancel_factors_lt", "proof_steps": null, "proof_length": null, "search_time": 14.560847997665405}
+{"success": false, "theorem_name": "List.pairwise_lt_range'", "proof_steps": null, "proof_length": null, "search_time": 27.400675058364868}
+{"success": false, "theorem_name": "Batteries.BinomialHeap.Imp.Heap.WF.tail?", "proof_steps": null, "proof_length": null, "search_time": 26.88847279548645}
+{"success": false, "theorem_name": "IsGroupHom.inv_ker_one'", "proof_steps": null, "proof_length": null, "search_time": 13.994201183319092}
+{"success": false, "theorem_name": "Convex.thickening", "proof_steps": null, "proof_length": null, "search_time": 10.88415002822876}
+{"success": true, "theorem_name": "Polynomial.ne_zero_of_mem_roots", "proof_steps": ["intro hp", "simp [Polynomial.mem_roots, hp] at h"], "proof_length": 2, "search_time": 25.560619831085205}
+{"success": false, "theorem_name": "MeasureTheory.OuterMeasure.comap_ofFunction", "proof_steps": null, "proof_length": null, "search_time": 148.63876104354858}
+{"success": false, "theorem_name": "NNReal.le_inv_iff_mul_le", "proof_steps": null, "proof_length": null, "search_time": 75.04816198348999}
+{"success": false, "theorem_name": "MeasureTheory.integrable_of_intervalIntegral_norm_bounded", "proof_steps": null, "proof_length": null, "search_time": 13.011706113815308}
+{"success": true, "theorem_name": "Nat.casesAuxOn_succ", "proof_steps": ["rfl"], "proof_length": 1, "search_time": 13.695736646652222}
+{"success": false, "theorem_name": "ENNReal.le_rpow_one_div_iff", "proof_steps": null, "proof_length": null, "search_time": 315.55816102027893}
+{"success": false, "theorem_name": "mul_right_cancel", "proof_steps": null, "proof_length": null, "search_time": 23.681890726089478}
+{"success": true, "theorem_name": "CauSeq.const_zero", "proof_steps": ["rfl"], "proof_length": 1, "search_time": 11.799278259277344}
+{"success": false, "theorem_name": "Ideal.span_singleton_eq_span_singleton", "proof_steps": null, "proof_length": null, "search_time": 301.7815909385681}
+{"success": false, "theorem_name": "SetTheory.PGame.zero_lf_inv'", "proof_steps": null, "proof_length": null, "search_time": 225.868497133255}
+{"success": false, "theorem_name": "Tropical.untrop_mul", "proof_steps": null, "proof_length": null, "search_time": 13.996151208877563}
+{"success": false, "theorem_name": "IntermediateField.separable_of_mem_isSeparable", "proof_steps": null, "proof_length": null, "search_time": 16.028265953063965}
+{"success": false, "theorem_name": "CochainComplex.mk'_d_1_0", "proof_steps": null, "proof_length": null, "search_time": 12.268928050994873}
+{"success": false, "theorem_name": "MeasureTheory.lintegral_strict_mono_of_ae_le_of_ae_lt_on", "proof_steps": null, "proof_length": null, "search_time": 23.392433881759644}
+{"success": false, "theorem_name": "Equiv.Perm.prod_comp'", "proof_steps": null, "proof_length": null, "search_time": 28.69070601463318}
+{"success": false, "theorem_name": "Set.sUnion_subset_iff", "proof_steps": null, "proof_length": null, "search_time": 13.229324102401733}
+{"success": false, "theorem_name": "Filter.tendsto_add_atTop_nat", "proof_steps": null, "proof_length": null, "search_time": 20.825811862945557}
+{"success": true, "theorem_name": "Finmap.erase_toFinmap", "proof_steps": ["cases s", "rfl"], "proof_length": 2, "search_time": 40.37020993232727}
+{"success": true, "theorem_name": "Hyperreal.coe_inv", "proof_steps": ["norm_cast"], "proof_length": 1, "search_time": 12.523315906524658}
+{"success": true, "theorem_name": "String.revPosOfAux_eq", "proof_steps": ["rfl"], "proof_length": 1, "search_time": 10.574384927749634}
+{"success": false, "theorem_name": "FreeAlgebra.toTensor_\u03b9", "proof_steps": null, "proof_length": null, "search_time": 12.293641090393066}
+{"success": false, "theorem_name": "Set.subset_biUnion_of_mem", "proof_steps": null, "proof_length": null, "search_time": 25.707730770111084}
+{"success": true, "theorem_name": "Finset.sdiff_sdiff_eq_self", "proof_steps": ["ext x", "simp [Finset.mem_sdiff, h]"], "proof_length": 2, "search_time": 25.484481811523438}
+{"success": false, "theorem_name": "Polynomial.Monic.degree_mul_comm", "proof_steps": null, "proof_length": null, "search_time": 13.472432136535645}
+{"success": false, "theorem_name": "List.head_cyclicPermutations", "proof_steps": null, "proof_length": null, "search_time": 119.88651895523071}
+{"success": true, "theorem_name": "Nonneg.nat_ceil_coe", "proof_steps": ["rfl"], "proof_length": 1, "search_time": 18.920357942581177}
+{"success": false, "theorem_name": "Cardinal.lift_natCast", "proof_steps": null, "proof_length": null, "search_time": 11.354028940200806}
+{"success": false, "theorem_name": "Filter.HasBasis.to_hasBasis'", "proof_steps": null, "proof_length": null, "search_time": 301.79576587677}
+{"success": false, "theorem_name": "Filter.EventuallyEq.isExtrFilter_iff", "proof_steps": null, "proof_length": null, "search_time": 294.822389125824}
+{"success": true, "theorem_name": "Algebra.trace_prod", "proof_steps": ["ext x y", "simp [LinearMap.coprod_inl, LinearMap.coprod_inr, Function.comp]", "simp [LinearMap.coprod_inr]"], "proof_length": 3, "search_time": 74.27295780181885}
+{"success": false, "theorem_name": "Algebra.map_leftMulMatrix_localization", "proof_steps": null, "proof_length": null, "search_time": 308.36908626556396}
+{"success": true, "theorem_name": "TypeVec.typevecCasesCons\u2082_appendFun", "proof_steps": ["rfl"], "proof_length": 1, "search_time": 13.018347978591919}
+{"success": false, "theorem_name": "Filter.NeBot.of_vsub_right", "proof_steps": null, "proof_length": null, "search_time": 54.944329023361206}
+{"success": false, "theorem_name": "Order.pred_eq_iff_covBy", "proof_steps": null, "proof_length": null, "search_time": 13.200127840042114}
+{"success": true, "theorem_name": "Set.Ici_subset_Ioi", "proof_steps": ["simp [Set.Ici, Set.Ioi, Set.subset_def]", "constructor", "intro h", "exact h a (le_refl a)", "intro hba x hax", "exact hba.trans_le hax"], "proof_length": 6, "search_time": 84.52576780319214}
+{"success": false, "theorem_name": "ExteriorAlgebra.\u03b9_range_disjoint_one", "proof_steps": null, "proof_length": null, "search_time": 74.34695816040039}
+{"success": true, "theorem_name": "Set.iInter_congr_Prop", "proof_steps": ["ext x", "simp only [Set.mem_iInter]", "constructor", "intro i q_holds", "rw [\u2190 f q_holds]", "exact i (pq.mpr q_holds)", "intro hq i", "have hq' : \u2200 i : q, x \u2208 f\u2081 (pq.mpr i) := by simpa [\u2190 f] using hq", "exact hq' (pq.mp i)"], "proof_length": 9, "search_time": 193.03138995170593}
+{"success": true, "theorem_name": "lt_trans'", "proof_steps": ["exact fun hbc hab => lt_trans hab hbc"], "proof_length": 1, "search_time": 11.87858510017395}
+{"success": true, "theorem_name": "MonoidHom.map_zpow'", "proof_steps": ["induction n with\n| ofNat n => simp [zpow_natCast, map_pow]\n| negSucc n => simp [zpow_negSucc, map_pow, hf]"], "proof_length": 1, "search_time": 16.819629907608032}
+{"success": true, "theorem_name": "MulOpposite.unop_list_prod", "proof_steps": ["induction l with\n| nil => simp\n| cons h t ih => simp [List.prod_cons, ih]"], "proof_length": 1, "search_time": 14.860903024673462}
+{"success": true, "theorem_name": "LightProfinite.finiteCoproduct.\u03b9_desc", "proof_steps": ["rfl"], "proof_length": 1, "search_time": 11.909271001815796}
+{"success": false, "theorem_name": "Set.wellFoundedOn_iff", "proof_steps": null, "proof_length": null, "search_time": 187.5692138671875}
+{"success": false, "theorem_name": "Setoid.card_classes_ker_le", "proof_steps": null, "proof_length": null, "search_time": 15.28862190246582}
+{"success": true, "theorem_name": "Matrix.smul_kronecker", "proof_steps": ["ext i j", "simp [kroneckerMap, Matrix.smul_apply, smul_mul_assoc]"], "proof_length": 2, "search_time": 27.64932107925415}
+{"success": false, "theorem_name": "FiberPrebundle.mem_pretrivializationAt_source", "proof_steps": null, "proof_length": null, "search_time": 12.652554988861084}
+{"success": false, "theorem_name": "GeneralizedContinuedFraction.of_s_tail", "proof_steps": null, "proof_length": null, "search_time": 310.31597995758057}
+{"success": false, "theorem_name": "MeasureTheory.integrable_add_iff_integrable_left", "proof_steps": null, "proof_length": null, "search_time": 154.67502784729004}
+{"success": false, "theorem_name": "Finset.noncommProd_singleton", "proof_steps": null, "proof_length": null, "search_time": 48.32581925392151}
+{"success": false, "theorem_name": "Booleanisation.lift_le_lift", "proof_steps": null, "proof_length": null, "search_time": 38.31210279464722}
+{"success": false, "theorem_name": "FractionalIdeal.count_mul", "proof_steps": null, "proof_length": null, "search_time": 60.03643202781677}
+{"success": false, "theorem_name": "ENNReal.tsum_lt_tsum", "proof_steps": null, "proof_length": null, "search_time": 13.352882862091064}
+{"success": false, "theorem_name": "Fin.one_pos'", "proof_steps": null, "proof_length": null, "search_time": 10.999413967132568}
+{"success": true, "theorem_name": "PowerBasis.equivAdjoinSimple_symm_aeval", "proof_steps": ["simp [PowerBasis.equivAdjoinSimple]"], "proof_length": 1, "search_time": 14.535220861434937}
+{"success": false, "theorem_name": "Fin.zero_add", "proof_steps": null, "proof_length": null, "search_time": 10.481770038604736}
+{"success": true, "theorem_name": "Function.isFixedPt_id", "proof_steps": ["show x = x", "rfl"], "proof_length": 2, "search_time": 24.766441106796265}
+{"success": true, "theorem_name": "CategoryTheory.unmop_comp", "proof_steps": ["rfl"], "proof_length": 1, "search_time": 12.743047952651978}
+{"success": false, "theorem_name": "PowerSeries.ker_coeff_eq_max_ideal", "proof_steps": null, "proof_length": null, "search_time": 305.31554102897644}
+{"success": true, "theorem_name": "BoxIntegral.Prepartition.distortion_biUnionTagged", "proof_steps": ["simp [Prepartition.biUnionTagged, Prepartition.distortion]", "simp [TaggedPrepartition.distortion, Prepartition.distortion]"], "proof_length": 2, "search_time": 26.517264127731323}
+{"success": false, "theorem_name": "Nat.monotone_primeCounting'", "proof_steps": null, "proof_length": null, "search_time": 51.730687856674194}
+{"success": true, "theorem_name": "List.get_attach", "proof_steps": ["simp [List.get_attach]"], "proof_length": 1, "search_time": 12.41384220123291}
+{"success": false, "theorem_name": "NFA.toDFA_correct", "proof_steps": null, "proof_length": null, "search_time": 301.3366119861603}
+{"success": false, "theorem_name": "Polynomial.associated_of_dvd_of_natDegree_le", "proof_steps": null, "proof_length": null, "search_time": 39.068706035614014}
+{"success": false, "theorem_name": "ProjectiveSpectrum.homogeneousIdeal_le_vanishingIdeal_zeroLocus", "proof_steps": null, "proof_length": null, "search_time": 121.42256617546082}
+{"success": false, "theorem_name": "kstar_mul_le", "proof_steps": null, "proof_length": null, "search_time": 15.04886770248413}
+{"success": false, "theorem_name": "Configuration.HasLines.exists_bijective_of_card_eq", "proof_steps": null, "proof_length": null, "search_time": 27.308093070983887}
+{"success": false, "theorem_name": "NNReal.tendsto_coe_atTop", "proof_steps": null, "proof_length": null, "search_time": 29.37310791015625}
+{"success": true, "theorem_name": "Set.Icc_subset_Iic_self", "proof_steps": ["intro x hx", "exact Set.mem_Iic.mpr (Set.mem_Icc.mp hx).2"], "proof_length": 2, "search_time": 25.91126775741577}
+{"success": false, "theorem_name": "Cardinal.mk_bounded_subset_le", "proof_steps": null, "proof_length": null, "search_time": 13.09212589263916}
+{"success": false, "theorem_name": "OnePoint.nhdsWithin_coe", "proof_steps": null, "proof_length": null, "search_time": 247.23458886146545}
+{"success": true, "theorem_name": "AlgEquiv.toLinearEquiv_symm", "proof_steps": ["rfl"], "proof_length": 1, "search_time": 11.66034984588623}
+{"success": false, "theorem_name": "Matrix.transpose_nonsing_inv", "proof_steps": null, "proof_length": null, "search_time": 40.96421694755554}
+{"success": false, "theorem_name": "Fin.cons_rev", "proof_steps": null, "proof_length": null, "search_time": 12.31850290298462}
+{"success": false, "theorem_name": "Finset.le_sup'", "proof_steps": null, "proof_length": null, "search_time": 11.39552092552185}
+{"success": true, "theorem_name": "TopHom.dual_id", "proof_steps": ["rfl"], "proof_length": 1, "search_time": 12.324653148651123}
+{"success": false, "theorem_name": "CategoryTheory.MorphismProperty.LeftFraction.map_ofHom", "proof_steps": null, "proof_length": null, "search_time": 11.523951768875122}
+{"success": false, "theorem_name": "gcd_dvd_gcd_mul_left", "proof_steps": null, "proof_length": null, "search_time": 25.71704888343811}
+{"success": false, "theorem_name": "Nat.fib_dvd", "proof_steps": null, "proof_length": null, "search_time": 58.03417110443115}
+{"success": true, "theorem_name": "deriv_neg''", "proof_steps": ["simp [deriv_neg]"], "proof_length": 1, "search_time": 12.24694299697876}
+{"success": false, "theorem_name": "FiniteField.isSquare_iff", "proof_steps": null, "proof_length": null, "search_time": 53.70177888870239}
+{"success": false, "theorem_name": "iSup_disjointed", "proof_steps": null, "proof_length": null, "search_time": 13.88317608833313}
+{"success": false, "theorem_name": "Set.IicExtend_coe", "proof_steps": null, "proof_length": null, "search_time": 13.411620855331421}
+{"success": true, "theorem_name": "compl_surjective", "proof_steps": ["intro a", "exact \u27e8a\u1d9c, compl_compl a\u27e9"], "proof_length": 2, "search_time": 26.9401798248291}
+{"success": false, "theorem_name": "Filter.EventuallyLE.mul_le_mul'", "proof_steps": null, "proof_length": null, "search_time": 14.352048873901367}
+{"success": false, "theorem_name": "Seminorm.ball_finset_sup_eq_iInter", "proof_steps": null, "proof_length": null, "search_time": 70.77336406707764}
+{"success": false, "theorem_name": "CategoryTheory.Idempotents.split_iff_of_iso", "proof_steps": null, "proof_length": null, "search_time": 214.88020300865173}
+{"success": true, "theorem_name": "Set.pi_univ", "proof_steps": ["ext", "simp [Set.mem_pi]"], "proof_length": 2, "search_time": 25.73357605934143}
+{"success": false, "theorem_name": "Complex.normSq_nonneg", "proof_steps": null, "proof_length": null, "search_time": 12.476635932922363}
+{"success": false, "theorem_name": "Filter.Ioi_mem_atTop", "proof_steps": null, "proof_length": null, "search_time": 13.883684873580933}
+{"success": true, "theorem_name": "Polynomial.nextCoeff_ne_zero", "proof_steps": ["unfold Polynomial.nextCoeff", "simp only [ite_ne_left_iff]", "simp only [ne_eq, not_and, not_not]", "simp only [eq_comm]"], "proof_length": 4, "search_time": 138.91651892662048}
+{"success": false, "theorem_name": "CategoryTheory.GrothendieckTopology.Cover.preOneHypercover_sieve\u2081", "proof_steps": null, "proof_length": null, "search_time": 150.96625995635986}

@@ -2,9 +2,10 @@ from abc import ABC, abstractmethod
 from typing import List
 import re
 import requests
+from openai import OpenAI
 
 
-class LLMClient(ABC):
+class APIClient(ABC):
     """Base class for LLM provider clients"""
 
     @abstractmethod
@@ -48,7 +49,7 @@ class LLMClient(ABC):
         return unique
 
 
-class OpenRouterClient(LLMClient):
+class OpenRouterClient(APIClient):
     """OpenRouter client (for benchmarking only)"""
 
     def __init__(self, model: str, api_key: str, num_samples: int = 10):
@@ -75,9 +76,9 @@ class OpenRouterClient(LLMClient):
                     "model": self.model,
                     "temperature": self.temperature,
                     "max_tokens": self.max_tokens,
-                    # "reasoning":{
-                    #     "enabled": True
-                    # },
+                    "reasoning":{
+                        "enabled": True
+                    },
                     "messages": messages
                 }
                 headers = {
@@ -96,7 +97,61 @@ class OpenRouterClient(LLMClient):
                 tactic = self.extract_tactic(response['choices'][0]['message']['content'])
                 if tactic:
                     suggestions.append(tactic)
-                    print(tactic)
+                    # print(tactic)
+
+                # print(f"Input tokens: response['usage']['prompt_tokens']")
+                # print(f"Output tokens: response['usage']['completion_tokens']")
+
+            except Exception as e:
+                print(f"API call failed: {e}")
+
+        to_return = self.deduplicate(suggestions)
+        # print(f"Generated {len(to_return)}/{self.num_samples} unique tactic suggestions")
+        return to_return
+
+
+class FireworksClient(APIClient):
+    """Fireworks client (benchmark custom or fine-tuned models)"""
+
+    def __init__(self, model: str, api_key: str, num_samples: int = 10):
+        self.model = model
+        self.api_key = api_key
+        self.temperature = 1.0
+        self.max_tokens = 1024
+        self.num_samples = num_samples # choices per request
+
+    def generate_tactics(self, state: str) -> List[str]:
+        """Generate tactics based on current proof state"""
+        prompt = self.create_prompt(state)
+        # print(prompt)
+        messages = [
+            # {"role": "system", "content": "Help the user with the next step of their proof in Lean 4. Never output anything other than Lean 4 code."},
+            {"role": "user", "content": prompt}
+        ]
+        suggestions = []
+
+        client = OpenAI(
+            api_key=self.api_key,
+            base_url="https://api.fireworks.ai/inference/v1"
+        )
+
+        for sample in range(self.num_samples):
+            try:
+                response = client.chat.completions.create(
+                    model=self.model, 
+                    temperature=self.temperature,
+                    max_completion_tokens=self.max_tokens,
+                    messages=messages
+                )
+
+                response = response.choices[0].message.content
+                # print(response)
+
+                # print(response['choices'][0]['message']['content'])
+                tactic = self.extract_tactic(response)
+                if tactic:
+                    suggestions.append(tactic)
+                    # print(tactic)
 
                 # print(f"Input tokens: response['usage']['prompt_tokens']")
                 # print(f"Output tokens: response['usage']['completion_tokens']")

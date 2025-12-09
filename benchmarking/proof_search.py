@@ -4,7 +4,7 @@ from dataclasses import dataclass, field
 from typing import Deque, List, Optional, Set
 from lean_dojo import Dojo, Theorem, TacticState, ProofFinished, LeanError, ProofGivenUp
 
-from benchmarking.api_clients import LLMClient
+from benchmarking.api_clients import APIClient
 
 
 @dataclass
@@ -28,7 +28,7 @@ class ProofSearchResult:
 class ProofSearch:
     """Proof search using generated tactics"""
 
-    def __init__(self, api_client: LLMClient):
+    def __init__(self, api_client: APIClient):
         self.api_client = api_client
         self.max_expansions = 500
         self.max_depth = 50
@@ -38,6 +38,7 @@ class ProofSearch:
         """Do the search"""
         start_time = time.time()
         theorem_name = theorem.full_name
+        print(f"{theorem_name}: starting search")
 
         # Initialize
         queue: Deque[SearchNode] = deque()
@@ -76,7 +77,7 @@ class ProofSearch:
             try:
                 suggestions = self.api_client.generate_tactics(state_pp)
             except Exception as e:
-                print(f"{theorem_name}: LLM generation failed: {e}")
+                print(f"{theorem_name}: generation failed: {e}")
                 continue
 
             # Try each suggested tactic
@@ -101,16 +102,16 @@ class ProofSearch:
                             continue
                         queue.append(SearchNode(
                             state = result,
-                            depth = node.depth + 1,
+                            depth = node.depth+1,
                             tactic_sequence = node.tactic_sequence + [suggestion]
                         ))
 
                     elif isinstance(result, LeanError):
-                        print("LeanError")
+                        # print("LeanError")
                         continue
 
                     elif isinstance(result, ProofGivenUp):
-                        print("ProofGivenUp")
+                        # print("ProofGivenUp")
                         continue
 
                 except Exception as e:
