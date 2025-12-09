@@ -16,8 +16,8 @@ class APIClient(ABC):
     def create_prompt(self, state: str) -> str:
         """Tactic suggestion prompt template"""
         return (
-            f"I need help proving a theorem in Lean 4. Here is my current proof state:\n{state}\n"
-            "Based on this state, please suggest the next tactic I should use in Lean 4 code. Only output one tactic step in lean code and nothing else."
+            f"Help me prove a theorem in Lean 4. Here is my current proof state:\n{state}\n"
+            "Based on this state, suggest the next tactic I should use in Lean 4 code. Only output one tactic step in lean code and nothing else."
         )
 
     def extract_tactic(self, response: str) -> str:
@@ -30,7 +30,7 @@ class APIClient(ABC):
             if end != -1:
                 return text[start:end].strip()
         # `
-        if '`' in text:
+        elif '`' in text:
             start = text.find("`")
             end = text.find("`", start + 1)
             if end != -1:
