@@ -9,50 +9,80 @@ def get_cuda_if_available():
 
 
 def pre_process_input(model_name, input):
-    if model_name == "internlm/internlm2-math-plus-1_8b" or model_name == "AI-MO/Kimina-Prover-Preview-Distill-7B":    
+    # CUSTOM
+    if "/" in model_name or model_name.startswith("accounts/"):
         prompt = (
-            "My LEAN 4 state is:\n```lean\n"
+            "Help me prove a theorem in Lean 4. Here is my current proof state:\n"
             + input
-            + "```\nPlease predict a possible tactic to help me prove the theorem."
+            + "\nBased on this state, suggest the next tactic I should use in Lean 4 code. "
+            "Only output one tactic step in lean code and nothing else."
         )
-        prompt = f"""<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n"""
-    elif model_name == "gpt-3.5-turbo" or model_name == "gpt-4-turbo-preview":
-        prompt = (
-            "Here is a theorem you need to prove in Lean:\n"
-            + input
-            + "\nNow you should suggest one line tactic in lean code:"
-        )
-    elif "gemini" in model_name or "claude" in model_name:
-        prompt = (
-            "Here is a theorem you need to prove in Lean:\n"
-            + input
-            + "\nNow you should suggest one line tactic in lean code:"
-        )
+    # elif model_name == "internlm/internlm2-math-plus-1_8b" or model_name == "AI-MO/Kimina-Prover-Preview-Distill-7B":
+    #     prompt = (
+    #         "My LEAN 4 state is:\n```lean\n"
+    #         + input
+    #         + "```\nPlease predict a possible tactic to help me prove the theorem."
+    #     )
+    #     prompt = f"""<|im_start|>user\n{prompt}<|im_end|>\n<|im_start|>assistant\n"""
+    # elif model_name == "gpt-3.5-turbo" or model_name == "gpt-4-turbo-preview":
+    #     prompt = (
+    #         "Here is a theorem you need to prove in Lean:\n"
+    #         + input
+    #         + "\nNow you should suggest one line tactic in lean code:"
+    #     )
+    # elif "gemini" in model_name or "claude" in model_name:
+    #     prompt = (
+    #         "Here is a theorem you need to prove in Lean:\n"
+    #         + input
+    #         + "\nNow you should suggest one line tactic in lean code:"
+    #     )
     else:
         raise NotImplementedError(f"External model '{model_name}' not supported")
     return prompt
 
 
 def post_process_output(model_name, output):
-    if model_name == "internlm/internlm2-math-plus-1_8b":
-        result = (
-            output.split("assistant")[-1]
-            .split("lean")[-1]
-            .split("```")[0]
-            .split("\n")[1]
-        )
-    elif model_name == "AI-MO/Kimina-Prover-Preview-Distill-7B":
-        result = (
-            output.split("assistant")[-1]
-            .split("lean")[-1]
-            .split("```")[0]
-            .split("\n")[-2]
-            .lstrip()
-        )
-    elif model_name == "gpt-3.5-turbo" or model_name == "gpt-4-turbo-preview":
-        result = output.split("lean")[-1].split("```")[0].split("\n")[1]
-    elif "gemini" in model_name or "claude" in model_name:
-        result = output.split("lean")[-1].split("```")[0].split("\n")[1]
+    # CUSTOM
+    if "/" in model_name or model_name.startswith("accounts/"):
+        text = output.strip()
+        # ```lean
+        if "```lean" in text:
+            start = text.find("```lean") + len("```lean")
+            end = text.find("```", start)
+            if end != -1:
+                result = text[start:end].strip()
+            else:
+                result = text
+        # `
+        elif '`' in text:
+            start = text.find("`")
+            end = text.find("`", start + 1)
+            if end != -1:
+                result = text[start+1:end].strip()
+            else:
+                result = text
+        # just raw
+        else:
+            result = text
+    # elif model_name == "internlm/internlm2-math-plus-1_8b":
+    #     result = (
+    #         output.split("assistant")[-1]
+    #         .split("lean")[-1]
+    #         .split("```")[0]
+    #         .split("\n")[1]
+    #     )
+    # elif model_name == "AI-MO/Kimina-Prover-Preview-Distill-7B":
+    #     result = (
+    #         output.split("assistant")[-1]
+    #         .split("lean")[-1]
+    #         .split("```")[0]
+    #         .split("\n")[-2]
+    #         .lstrip()
+    #     )
+    # elif model_name == "gpt-3.5-turbo" or model_name == "gpt-4-turbo-preview":
+    #     result = output.split("lean")[-1].split("```")[0].split("\n")[1]
+    # elif "gemini" in model_name or "claude" in model_name:
+    #     result = output.split("lean")[-1].split("```")[0].split("\n")[1]
     else:
         raise NotImplementedError(f"External model '{model_name}' not supported")
     return result

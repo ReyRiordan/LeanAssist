@@ -56,7 +56,7 @@ class OpenRouterClient(APIClient):
         self.model = model
         self.api_key = api_key
         self.temperature = 1.0
-        self.max_tokens = 1024
+        # self.max_tokens = 1024
         self.num_samples = num_samples # choices per request
 
     def generate_tactics(self, state: str) -> List[str]:
@@ -75,7 +75,7 @@ class OpenRouterClient(APIClient):
                 payload = {
                     "model": self.model,
                     "temperature": self.temperature,
-                    "max_tokens": self.max_tokens,
+                    # "max_tokens": self.max_tokens,
                     "reasoning":{
                         "enabled": True
                     },
@@ -117,7 +117,7 @@ class FireworksClient(APIClient):
         self.model = model
         self.api_key = api_key
         self.temperature = 1.0
-        self.max_tokens = 1024
+        # self.max_tokens = 1024
         self.num_samples = num_samples # choices per request
 
     def generate_tactics(self, state: str) -> List[str]:
@@ -132,7 +132,7 @@ class FireworksClient(APIClient):
 
         client = OpenAI(
             api_key=self.api_key,
-            base_url="https://api.fireworks.ai/inference/v1"
+            base_url="https://api.fireworks.ai/inference/v1/"
         )
 
         for sample in range(self.num_samples):
@@ -140,8 +140,8 @@ class FireworksClient(APIClient):
                 response = client.chat.completions.create(
                     model=self.model, 
                     temperature=self.temperature,
-                    max_completion_tokens=self.max_tokens,
-                    reasoning_effort=True, # turn reasoning on
+                    # max_completion_tokens=self.max_tokens,
+                    reasoning_effort=False, # toggle reasoning
                     messages=messages
                 )
 

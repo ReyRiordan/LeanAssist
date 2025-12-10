@@ -133,3 +133,24 @@ def kimina : ExternalGenerator := {
 
 #eval generate kimina "n : ℕ\n⊢ gcd n n = n"
 -/
+
+
+/-
+-- Openrouter example
+def haiku4.5 : ExternalGenerator := {
+  name := "OR-haiku-4.5"
+  host := "localhost"
+  port := 23337
+}
+
+#eval generate haiku4.5 "n : ℕ\n⊢ gcd n n = n"
+
+-- Fireworks example
+def deepseek3.2 : ExternalGenerator := {
+  name := "F-deepseek-3.2"
+  host := "localhost"
+  port := 23337
+}
+
+#eval generate qwenFireworks "n : ℕ\n⊢ gcd n n = n"
+-/

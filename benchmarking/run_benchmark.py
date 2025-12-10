@@ -17,9 +17,9 @@ def main():
 
     # ----- CONFIG -----
     provider = "fireworks"
-    model_name = "Deepseek-3.2"               # use diff name to not overwrite results from same model
-    model = "accounts/fireworks/models/deepseek-v3p2"     # actual model id from https://openrouter.ai/models or https://fireworks.ai/models
-    data_cat = "novel_premises"                     # options: "random", "novel_premises"
+    model_name = "Qwen3-8B-tuned"               # use diff name to not overwrite results from same model
+    model = "accounts/reyriordan/deployedModels/ft-miz6l90s-hfg9w-gekl7kg3"     # actual model id from https://openrouter.ai/models or https://fireworks.ai/models
+    data_cat = "random"                     # options: "random", "novel_premises"
     data_type = "test"                       # options: "train", "val", "test"
     num_samples = 10                        # n tactics to generate at each proof state (breadth of search)
     num_workers = 4                         # concurrency

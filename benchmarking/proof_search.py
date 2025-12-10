@@ -116,6 +116,7 @@ class ProofSearch:
 
                 except Exception as e:
                     print(f"{theorem_name}: run_tac failed: {e}")
+                    print(f"^Suggestion: {suggestion}")
                     continue
 
         # Search exhausted

@@ -1,0 +1,7 @@
+{"success": false, "theorem_name": "UFModel.Models.parent_eq'", "proof_steps": null, "proof_length": null, "search_time": 0.9561958312988281}
+{"success": false, "theorem_name": "CategoryTheory.Equivalence.invFunIdAssoc_hom_app", "proof_steps": null, "proof_length": null, "search_time": 0.8645310401916504}
+{"success": false, "theorem_name": "ContinuousAt.comp_lowerSemicontinuousWithinAt_antitone", "proof_steps": null, "proof_length": null, "search_time": 0.4363718032836914}
+{"success": false, "theorem_name": "LocalizedModule.mk_add_mk", "proof_steps": null, "proof_length": null, "search_time": 0.3124849796295166}
+{"success": false, "theorem_name": "List.pairwise_lt_range'", "proof_steps": null, "proof_length": null, "search_time": 0.24953913688659668}
+{"success": false, "theorem_name": "CancelDenoms.cancel_factors_lt", "proof_steps": null, "proof_length": null, "search_time": 0.32565879821777344}
+{"success": false, "theorem_name": "Combinatorics.Line.apply_of_ne_none", "proof_steps": null, "proof_length": null, "search_time": 0.48607802391052246}

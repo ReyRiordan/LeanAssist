@@ -1,0 +1,3 @@
+{"success": false, "theorem_name": "LocalizedModule.mk_add_mk", "proof_steps": null, "proof_length": null, "search_time": 18.319398880004883}
+{"success": false, "theorem_name": "ENNReal.le_rpow_one_div_iff", "proof_steps": null, "proof_length": null, "search_time": 6.48851203918457}
+{"success": true, "theorem_name": "CategoryTheory.Equivalence.invFunIdAssoc_hom_app", "proof_steps": ["dsimp [invFunIdAssoc]", "simp"], "proof_length": 2, "search_time": 52.15719699859619}

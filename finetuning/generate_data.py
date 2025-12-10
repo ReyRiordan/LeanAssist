@@ -86,9 +86,9 @@ def write_jsonl(examples: List[Dict], output_path: Path):
 
 def main():
     # ----- CONFIG -----
-    dataset_name = "Qwen3-4B-demo"          # use diff name to not overwrite results
+    dataset_name = "Qwen3-8B-demo"          # use diff name to not overwrite results
     data_cat = "random"                     # options: "random", "novel_premises"
-    num_examples_train = 10000                 # n training examples to extract from (~118k max?)
+    num_examples_train = 25000                 # n training examples to extract from (~118k max?)
     num_examples_val = 1000                    # n val examples to extract from (2000 max)
     shuffle = True                          # shuffle examples before sampling
     seed = 67                               # rng seed for shuffling
