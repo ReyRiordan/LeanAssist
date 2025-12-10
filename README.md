@@ -7,9 +7,16 @@ Dataset/benchmark (too big for git): https://zenodo.org/records/12740403
 
 ### Setup
 
+Install the requirements:
+
+```bash
 pip install -r requirements.txt  
-Make sure you also have Lean, Lake, cmake, etc installed.  
-Create .env file: see .env.example
+```
+
+Make sure you also have Lean, Lake, cmake, etc installed. 
+
+Create .env file: see .env.example, need OpenRouter and Fireworks API keys.
+
 Download the dataset (https://zenodo.org/records/12740403) and put it in your workspace as leandojo_benchmark_4/ directory
 
 #### Benchmarking (benchmarking/)
