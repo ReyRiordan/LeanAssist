@@ -4,9 +4,10 @@ import matplotlib.pyplot as plt
 
 # model performances as reported from paper, no direct values of total/successes
 BASELINE_MODELS = {
-    "ReProver (active retrieval)_random_val": {"success_rate": .512},
-    "ReProver (no active retrieval)_random_val": {"success_rate": .476},
-    "GPT-4 (zero-shot)_random_val": {"success_rate": .29}
+    "ReProver (active retrieval) random_val": {"success_rate": .512},
+    "ReProver (no active retrieval) random_val": {"success_rate": .476},
+    "GPT-4 random_val": {"success_rate": .29},
+    "tidyllm": {"success_rate": .238}
 }
 
 def load_metrics(path):
@@ -53,28 +54,28 @@ def plot_graph(metrics):
         else:
             bar.set_color("tab:cyan") # imported models tested
     
-    ax.set_title("Model Success Rates", pad=25)
-    ax.set_xlabel("Success Rates")
+    ax.set_title("Model Success Rates", pad=25, fontsize=16, fontweight="bold")
+    ax.set_xlabel("Success Rates on First Attempt", fontsize=14)
 
     ax.text(
-        0.16, 1.01,
+        0.10, 1.01,
         "■ baseline performances from the paper",
         color="blueviolet",
         transform=ax.transAxes,
-        fontsize=10,
+        fontsize=12,
         va="bottom",
     )
     ax.text(
-        0.52, 1.01,
+        0.57, 1.01,
         "■ performances we computed",
         color="tab:cyan",
         transform=ax.transAxes,
-        fontsize=10,
+        fontsize=12,
         va="bottom",
     )
 
     ax.set_yticks(y_pos)
-    ax.set_yticklabels(models)
+    ax.set_yticklabels(models, fontsize=14)
     ax.set_xlim(0, 80)
 
     for bar, val in zip(bars, rates):
